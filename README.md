@@ -10,7 +10,7 @@ An ERC-8004 identity on [Arc](https://arc.io) (Circle's USDC chain, `eip155:5042
   `registration-v1` file, hosts it, and probes the endpoints first: if none answers, the file says `active: false`
   rather than pretending. It returns the unsigned `register(agentURI)` call for Arc's identity registry
   `0x8004A169FB4a3325136EB29fA0ceB6D2e539a432`. **Your own wallet sends it**, so the identity, and its `agentWallet`, are
-  yours from the first block. Nobody ever holds your key. Gas is about 0.002 USDC.
+  yours from the first block. Nobody ever holds your key. Gas is about 0.004 USDC.
 - **Paid, done for you.** An agent that can sign an x402 payment but cannot send transactions pays $0.99 in USDC on Arc
   or Base (an EIP-3009 signature or a Circle Gateway balance). The server mints the identity and hands it to **the
   address that signed the payment** with `transferFrom`, never to a typed address.
