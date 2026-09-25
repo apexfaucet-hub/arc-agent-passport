@@ -69,7 +69,7 @@
       <label for="f-img">Picture (https link; leave empty for a passport picture)</label><input class="f" id="f-img" placeholder="https://…png" autocomplete="off">
     </details>
     <button type="button" class="go" id="go" data-keep-color>Connect wallet and get the passport</button>
-    <div class="msg muted" id="msg">About 0.002 USDC of gas on Arc. No USDC on Arc yet? <a href="/arc/faucet/">Claim some free</a>, then come back.</div>
+    <div class="msg muted" id="msg">About 0.004 USDC of gas on Arc. No USDC on Arc yet? <a href="/arc/faucet/">Claim some free</a>, then come back.</div>
   </div>
 
   <div class="card res" id="res" style="display:none"></div>
@@ -143,7 +143,7 @@
       var img = $('f-img').value.trim(); if (img) body.image = img;
       var d = await (await fetch('/api/arc/passport/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })).json();
       if (!d || !d.ok) throw new Error((d && d.error) || 'the draft could not be made');
-      if (d.warning) say(d.warning + ' Now confirm in your wallet.'); else say('Confirm the transaction in your wallet (about 0.002 USDC of gas).');
+      if (d.warning) say(d.warning + ' Now confirm in your wallet.'); else say('Confirm the transaction in your wallet (about 0.004 USDC of gas).');
       var tx = await eth.request({ method: 'eth_sendTransaction', params: [{ from: from, to: d.register.to, data: d.register.data, value: '0x0' }] });
       say('Sent. Waiting for Arc to include it…');
       for (var i = 0; i < 30; i++) {
