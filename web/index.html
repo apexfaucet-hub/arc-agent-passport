@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script id="apex-early-theme">(function(){try{var d=document.documentElement,s=localStorage,t=(s.getItem("apex-theme-picked")&&(s.getItem("apex-theme")||s.getItem("theme")))||"light";if(s.getItem("apex-theme-v3")!=="0")d.classList.add("apex-v3");if(s.getItem("apex-game-mode")==="true"){d.classList.add("game-mode");t="dark";document.write('<link rel="stylesheet" id="apex-game-mode-css" href="/game-mode.css?v=5">');}d.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/apex-v3.css?v=44" id="apex-v3-css">
+<title>Arc Agent Passport</title>
+<meta name="description" content="Put your agent on Arc in one minute, free: an ERC-8004 identity owned by your own wallet, a correct registration file, an hourly check-up and a tower in Arc City. Agents can buy one for themselves over x402.">
+<link rel="canonical" href="https://apexfaucet.xyz/arc/passport/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="APEX Faucet">
+<meta property="og:url" content="https://apexfaucet.xyz/arc/passport/">
+<meta property="og:title" content="Arc Agent Passport: your agent on Arc in one minute, free">
+<meta property="og:description" content="An ERC-8004 identity owned by your wallet, a registration file that reads right, an hourly check-up and a tower in Arc City. Your wallet signs one transaction; we never hold a key.">
+<meta property="og:image" content="https://apexfaucet.xyz/og/arc-passport.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arc Agent Passport: your agent on Arc in one minute, free">
+<meta name="twitter:description" content="An ERC-8004 identity owned by your wallet, a registration file that reads right, an hourly check-up and a tower in Arc City. Your wallet signs one transaction; we never hold a key.">
+<meta name="twitter:image" content="https://apexfaucet.xyz/og/arc-passport.jpg">
+<meta name="twitter:image:alt" content="Arc Agent Passport">
+<style>
+  :root{--pp-ground:#FBF8F6;--pp-ground-2:#FFFFFF;--pp-ground-3:#F3EEE9;--pp-ink:#1A1416;--pp-ink-2:#4A3D41;--pp-line:#E4D9DC;--pp-gold:#7C5B0F;--pp-ok:#2E7D4F;--pp-bad:#B3261E}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--pp-ground:#0B0A0B;--pp-ground-2:#141112;--pp-ground-3:#1C1517;--pp-ink:#EFE6E2;--pp-ink-2:#CDBFBB;--pp-line:#2E1A1D;--pp-gold:#E2B94A;--pp-ok:#6FCF97;--pp-bad:#F26B71}}
+  :root[data-theme="dark"]{--pp-ground:#0B0A0B;--pp-ground-2:#141112;--pp-ground-3:#1C1517;--pp-ink:#EFE6E2;--pp-ink-2:#CDBFBB;--pp-line:#2E1A1D;--pp-gold:#E2B94A;--pp-ok:#6FCF97;--pp-bad:#F26B71}
+  body{margin:0;background:var(--pp-ground);color:var(--pp-ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  .pp{max-width:860px;margin:0 auto;padding:12px 16px 56px}
+  .pp h1{font-size:1.7rem;line-height:1.15;margin:4px 0 4px} .pp h2{font-size:1.15rem;margin:24px 0 8px}
+  .pp .lead{margin:0 0 10px}
+  .pp .card{border:1px solid var(--pp-line);border-radius:14px;background:var(--pp-ground-2);padding:14px 14px;margin:10px 0}
+  .pp label{display:block;font-weight:600;font-size:.9rem;margin:8px 0 3px}
+  .pp input.f,.pp textarea.f{width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--pp-line);border-radius:10px;background:var(--pp-ground-2);color:var(--pp-ink);font:inherit}
+  .pp textarea.f{min-height:64px;resize:vertical}
+  .pp details{margin:8px 0} .pp summary{cursor:pointer;font-weight:600;font-size:.92rem}
+  body:not(#apex-z):not(#apex-y) .pp button.go{width:100%;margin-top:12px;padding:13px 16px !important;border-radius:12px !important;border:0 !important;background:#7C5B0F !important;background-image:none !important;color:#FFFFFF !important;-webkit-text-fill-color:#FFFFFF !important;font:700 1rem system-ui,sans-serif !important;cursor:pointer}
+  body:not(#apex-z):not(#apex-y) .pp button.go[disabled]{background:#5E4F52 !important;cursor:wait}
+  body:not(#apex-z):not(#apex-y) .pp a.share{display:inline-block;margin:8px 8px 0 0;padding:9px 14px;border-radius:10px;border:1px solid var(--pp-line);background:var(--pp-ground-3);text-decoration:none;font-weight:600}
+  .pp .msg{min-height:22px;margin:8px 0 0;font-size:.93rem}
+  .pp .msg.bad{border-left:3px solid var(--pp-bad);padding-left:8px} .pp .msg.ok{border-left:3px solid var(--pp-ok);padding-left:8px}
+  .pp .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+  .pp .res img{width:100%;height:auto;border-radius:12px;border:1px solid var(--pp-line)}
+  .pp code{word-break:break-all;font-size:.82em} .pp pre{white-space:pre-wrap;word-break:break-all;font-size:.8rem;background:var(--pp-ground-3);padding:10px;border-radius:10px}
+  .pp ul.m{margin:6px 0 0;padding-left:18px} .pp ul.m li{margin:4px 0}
+  .pp .recent a{display:inline-block;margin:3px 10px 3px 0}
+  html body:not(#a):not(#b):not(#c):not(#d):not(#e) .pp :is(h1,h2,h3,p,span,div,b,strong,li,label,small,em,summary,pre,code){color:var(--pp-ink) !important;-webkit-text-fill-color:var(--pp-ink) !important}
+  html body:not(#a):not(#b):not(#c):not(#d):not(#e) .pp :is(.lead,.muted,.muted *){color:var(--pp-ink-2) !important;-webkit-text-fill-color:var(--pp-ink-2) !important}
+  html body:not(#a):not(#b):not(#c):not(#d):not(#e) .pp :is(a,.kick){color:var(--pp-gold) !important;-webkit-text-fill-color:var(--pp-gold) !important}
+  #apex-nav-bar [data-wallet-btn], #nav-wallet-btn-drawer, [data-wallet-btn]{display:none !important}
+</style>
+</head>
+<body>
+<main class="pp">
+  <div class="kick" style="font-weight:800;letter-spacing:.16em;font-size:.78rem">ARC AGENT PASSPORT</div>
+  <h1>Your agent on Arc in one minute. Free.</h1>
+  <p class="lead">An ERC-8004 identity owned by your own wallet, a registration file that reads right, an hourly check-up and a tower in Arc City. You sign one transaction; we never hold a key.</p>
+
+  <div class="card" id="form">
+    <label for="f-name">Agent name</label>
+    <input class="f" id="f-name" maxlength="48" placeholder="e.g. Tide Watcher" autocomplete="off">
+    <label for="f-desc">What it does</label>
+    <textarea class="f" id="f-desc" maxlength="400" placeholder="One or two sentences: what it does and for whom."></textarea>
+    <details>
+      <summary>Where it can be reached (optional, add any it has)</summary>
+      <label for="f-web">Website or chat link</label><input class="f" id="f-web" placeholder="https://" autocomplete="off">
+      <label for="f-a2a">A2A agent card</label><input class="f" id="f-a2a" placeholder="https://…/.well-known/agent-card.json" autocomplete="off">
+      <label for="f-mcp">MCP server</label><input class="f" id="f-mcp" placeholder="https://…/mcp" autocomplete="off">
+      <label for="f-img">Picture (https link; leave empty for a passport picture)</label><input class="f" id="f-img" placeholder="https://…png" autocomplete="off">
+    </details>
+    <button type="button" class="go" id="go" data-keep-color>Connect wallet and get the passport</button>
+    <div class="msg muted" id="msg">About 0.002 USDC of gas on Arc. No USDC on Arc yet? <a href="/arc/faucet/">Claim some free</a>, then come back.</div>
+  </div>
+
+  <div class="card res" id="res" style="display:none"></div>
+
+  <h2>What your agent gets</h2>
+  <div class="grid">
+    <div class="card"><b>An identity it owns</b><p class="muted" style="margin:6px 0 0">Your wallet calls register() on Arc's ERC-8004 registry itself, so the identity is yours from the first block and payments point at your address.</p></div>
+    <div class="card"><b>A file that reads right</b><p class="muted" style="margin:6px 0 0">We write and host the registration file in the standard format. If none of its endpoints answers, the file says <code>active: false</code> until it does.</p></div>
+    <div class="card"><b>An hourly check-up</b><p class="muted" style="margin:6px 0 0">The <a href="/arc/agents/">APEX Watchtower</a> calls its endpoints every hour, and writes its weekly uptime on chain once it has endpoints that answer.</p></div>
+    <div class="card"><b>A tower in Arc City</b><p class="muted" style="margin:6px 0 0">Every registered agent stands in <a href="/arc/city/">Arc City</a>, plus a passport page and picture to share.</p></div>
+  </div>
+
+  <h2>Agents: buy your own identity</h2>
+  <div class="card">
+    <p style="margin-top:0">An agent with USDC on Arc or Base pays with a signature alone and the identity lands in the paying wallet, never a typed address: <b>$0.99</b> over x402.</p>
+    <pre>POST https://apexfaucet.xyz/api/x402/arc-passport
+{"name":"My Agent","description":"What it does.","services":[{"name":"A2A","endpoint":"https://…/agent-card.json"}]}</pre>
+    <p class="muted" style="margin-bottom:0">MCP: the tools <code>arc_passport_draft</code> (free, your wallet sends the transaction) and <code>arc_passport_buy</code> (paid) at <code>https://apexfaucet.xyz/api/mcp</code>. Change a file later with <code>POST /api/arc/passport/edit</code>, signed by the owner wallet.</p>
+  </div>
+
+  <h2>Recent passports</h2>
+  <div class="card recent muted" id="recent">Loading…</div>
+</main>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var msg = $('msg'), go = $('go');
+  function say(t, cls) { msg.className = 'msg ' + (cls || 'muted'); msg.textContent = t; }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function services() {
+    var out = [];
+    var w = $('f-web').value.trim(), a = $('f-a2a').value.trim(), m = $('f-mcp').value.trim();
+    if (w) out.push({ name: 'web', endpoint: w }); if (a) out.push({ name: 'A2A', endpoint: a }); if (m) out.push({ name: 'MCP', endpoint: m });
+    return out;
+  }
+  async function toArc(eth) {
+    try { await eth.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x13b2' }] }); }
+    catch (e) {
+      if (e && (e.code === 4902 || /unrecognized|not added|unknown chain/i.test(e.message || ''))) {
+        await eth.request({ method: 'wallet_addEthereumChain', params: [{ chainId: '0x13b2', chainName: 'Arc', nativeCurrency: { name: 'USDC', symbol: 'USDC', decimals: 18 }, rpcUrls: ['https://rpc.mainnet.arc.io'], blockExplorerUrls: ['https://explorer.arc.io'] }] });
+      } else throw e;
+    }
+  }
+  function showResult(p) {
+    var L = p.links || {};
+    var text = 'My agent just got its passport on Arc: agent #' + p.agentId + ' on the ERC-8004 registry, with an hourly check-up and a tower in Arc City. Free for your agent too:';
+    var share = 'https://x.com/intent/post?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(L.passport || 'https://apexfaucet.xyz/arc/passport/');
+    var r = $('res');
+    r.innerHTML = '<div class="kick" style="font-weight:800;letter-spacing:.14em;font-size:.76rem">PASSPORT ISSUED</div>'
+      + '<h2 style="margin:4px 0 8px">' + esc(p.name) + ' is agent #' + esc(p.agentId) + ' on Arc</h2>'
+      + '<a href="' + esc(L.passport) + '"><img src="' + esc(L.card) + '" alt="' + esc(p.name) + ' passport" width="1200" height="630"></a>'
+      + '<div><a class="share" href="' + esc(share) + '" target="_blank" rel="noopener">Share on X</a><a class="share" href="' + esc(L.passport) + '">Passport page</a><a class="share" href="' + esc(L.arcCity) + '">Its tower in Arc City</a></div>'
+      + '<ul class="m muted"><li>Hourly check-up: <a href="' + esc(L.watchtower) + '">' + esc(L.watchtower) + '</a> (the first one within the hour)</li><li>Registration file: <a href="' + esc(L.registrationFile) + '">' + esc(L.registrationFile) + '</a></li>'
+      + (L.explorerTx ? '<li>Transaction: <a href="' + esc(L.explorerTx) + '">on the Arc explorer</a></li>' : '') + '</ul>';
+    r.style.display = 'block'; r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  go.onclick = async function () {
+    var name = $('f-name').value.trim(), description = $('f-desc').value.trim();
+    if (name.length < 2) return say('Give your agent a name (2 to 48 characters).', 'bad');
+    if (description.length < 10) return say('Say in a sentence what it does (at least 10 characters).', 'bad');
+    var eth = window.ethereum;
+    if (!eth) return say('No browser wallet here. Open this page in your wallet app (MetaMask, Rabby, OKX), or let your agent buy one over x402 below.', 'bad');
+    go.disabled = true;
+    try {
+      say('Connecting your wallet…');
+      var accts = await eth.request({ method: 'eth_requestAccounts' });
+      var from = accts && accts[0]; if (!from) throw new Error('no account');
+      say('Switching to Arc…'); await toArc(eth);
+      say('Writing your registration file and checking its endpoints…');
+      var body = { name: name, description: description, services: services() };
+      var img = $('f-img').value.trim(); if (img) body.image = img;
+      var d = await (await fetch('/api/arc/passport/draft', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) })).json();
+      if (!d || !d.ok) throw new Error((d && d.error) || 'the draft could not be made');
+      if (d.warning) say(d.warning + ' Now confirm in your wallet.'); else say('Confirm the transaction in your wallet (about 0.002 USDC of gas).');
+      var tx = await eth.request({ method: 'eth_sendTransaction', params: [{ from: from, to: d.register.to, data: d.register.data, value: '0x0' }] });
+      say('Sent. Waiting for Arc to include it…');
+      for (var i = 0; i < 30; i++) {
+        await new Promise(function (r) { setTimeout(r, 2500); });
+        var c = await fetch('/api/arc/passport/confirm', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ slug: d.slug, tx: tx }) });
+        var cj = await c.json();
+        if (cj && cj.ok) { say('Done. Your agent has its passport.', 'ok'); showResult(cj.passport); loadRecent(); return; }
+        if (c.status !== 202) throw new Error((cj && cj.error) || 'the transaction could not be confirmed');
+      }
+      say('Arc has not included it yet. Your file is ready at ' + d.agentURI + '; this page can confirm it later with the transaction ' + tx, 'bad');
+    } catch (e) {
+      var m = (e && (e.message || e.reason)) || String(e);
+      if (/insufficient|funds|gas/i.test(m)) m = 'Your wallet needs a little USDC on Arc for gas. Claim some free at /arc/faucet/ and try again.';
+      if (/reject|denied|cancel/i.test(m)) m = 'You cancelled in the wallet. Nothing was sent.';
+      say(m, 'bad');
+    } finally { go.disabled = false; }
+  };
+  function loadRecent() {
+    fetch('/api/arc/passports').then(function (r) { return r.json(); }).then(function (j) {
+      var box = $('recent');
+      if (!j || !j.recent || !j.recent.length) { box.textContent = 'None yet. Yours can be the first.'; return; }
+      box.innerHTML = '<div style="margin-bottom:6px">' + esc(j.minted) + ' issued so far.</div>' + j.recent.map(function (p) { return '<a href="/arc/passport/' + esc(p.agentId) + '">#' + esc(p.agentId) + ' ' + esc(p.name) + '</a>'; }).join('');
+    }).catch(function () { $('recent').textContent = 'The list could not be read just now.'; });
+  }
+  loadRecent();
+})();
+</script>
+<script src="/nav-v2.js?v=r225"></script>
+</body>
+</html>
