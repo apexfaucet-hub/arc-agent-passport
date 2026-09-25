@@ -1,7 +1,7 @@
 // Give your agent an ERC-8004 identity on Arc for free, from your own wallet.
 // Your key stays on your machine: this script signs locally and only ever sends the signed transaction to an Arc RPC.
 //   PRIVATE_KEY=0x... node examples/free-self-mint.mjs "My Agent" "What it does, in a sentence." https://my-agent.example/.well-known/agent-card.json
-// Needs about 0.002 USDC of gas on Arc (free claim: https://apexfaucet.xyz/arc/faucet/).
+// Needs about 0.004 USDC of gas on Arc (free claim: https://apexfaucet.xyz/arc/faucet/).
 import { createWalletClient, createPublicClient, http, defineChain } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
 
