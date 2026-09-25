@@ -6,7 +6,7 @@
 // Why: an agent on Arc needs an identity that its owner holds, a registration file that parses, and endpoints that
 // answer. This does all three without ever holding anyone's key:
 //   FREE (self-mint): we write a correct registration file and host it; the owner's own wallet sends register(uri), so
-//     the identity is theirs from the first block and agentWallet is their address. Gas is ~0.002 USDC, which one
+//     the identity is theirs from the first block and agentWallet is their address. Gas is ~0.004 USDC, which one
 //     claim at our Arc faucet covers.
 //   PAID (done for you, an agent paying for itself): POST /api/x402/arc-passport, priced in lib/prices.js. The identity is
 //     minted by our passport wallet and handed to the address that PAID - proven by its signature, never typed - with
@@ -179,7 +179,7 @@ async function draft(body, ip, mode) {
     ok: true, slug, agentURI: uriFor(slug), active: !!active, probe: pr,
     file: fileFor({ slug, name: v.name, description: v.description, image: v.image, services: JSON.stringify(v.services), active }),
     register: { chainId: 5042, chainIdHex: '0x13b2', to: REG, data, value: '0x0',
-      note: 'Send this from the wallet that should own the agent: it calls register(agentURI) on Arc\'s ERC-8004 identity registry and costs about 0.002 USDC of gas. No USDC on Arc yet? One claim at ' + SITE + '/arc/faucet/ covers it.' },
+      note: 'Send this from the wallet that should own the agent: it calls register(agentURI) on Arc\'s ERC-8004 identity registry and costs about 0.004 USDC of gas. No USDC on Arc yet? One claim at ' + SITE + '/arc/faucet/ covers it.' },
     next: 'POST ' + SITE + '/api/arc/passport/confirm {"slug":"' + slug + '","tx":"0x…"} once the transaction is in a block. Send register() within 24 hours: an unregistered draft expires then.',
     warning: active ? null : 'None of the endpoints answered, so the file says active:false. It becomes true when you edit it after your agent is up.',
   };
@@ -450,7 +450,7 @@ module.exports = function (app, express, opts) {
     const n = await q1('SELECT COUNT(*) AS n FROM passports WHERE status = ?', ['minted']).catch(() => ({ n: null }));
     res.set('Cache-Control', 'public, max-age=30');
     res.json({ ok: true, minted: n ? n.n : null, recent: rows.map((r) => ({ agentId: Number(r.agent_id), name: r.name, active: !!r.active, page: SITE + '/arc/passport/' + r.agent_id })),
-      priceUsd: PASSPORT_USD, free: 'self-mint: your own wallet sends register(), about 0.002 USDC of gas' });
+      priceUsd: PASSPORT_USD, free: 'self-mint: your own wallet sends register(), about 0.004 USDC of gas' });
   });
   app.get('/api/arc/passport/:ref', async (req, res) => {
     const ref = String(req.params.ref || '').toLowerCase();
